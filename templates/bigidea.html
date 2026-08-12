@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose a Big Idea</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .title p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        .big-ideas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.5;
+            min-height: 50px;
+        }
+
+        .card button {
+            width: 100%;
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 13px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card button:hover {
+            background: #1d4ed8;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 35px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .big-ideas {
+                grid-template-columns: 1fr;
+            }
+
+            .title h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AP CSP Practice Generator</h2>
+</header>
+
+<div class="container">
+
+    <div class="title">
+        <h1>Choose a Big Idea</h1>
+        <p>Select the topic you want to practice.</p>
+    </div>
+
+    <div class="big-ideas">
+
+        <div class="card">
+            <h2>Big Idea 1</h2>
+            <p>Creative Development</p>
+
+            <form action="/practice">
+                <input type="hidden" name="bigidea" value="1">
+                <button type="submit">Choose Big Idea 1</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Big Idea 2</h2>
+            <p>Data</p>
+
+            <form action="/practice">
+                <input type="hidden" name="bigidea" value="2">
+                <button type="submit">Choose Big Idea 2</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Big Idea 3</h2>
+            <p>Algorithms & Programming</p>
+
+            <form action="/practice">
+                <input type="hidden" name="bigidea" value="3">
+                <button type="submit">Choose Big Idea 3</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Big Idea 4</h2>
+            <p>Computer Systems & Networks</p>
+
+            <form action="/practice">
+                <input type="hidden" name="bigidea" value="4">
+                <button type="submit">Choose Big Idea 4</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Big Idea 5</h2>
+            <p>Impact of Computing</p>
+
+            <form action="/practice">
+                <input type="hidden" name="bigidea" value="5">
+                <button type="submit">Choose Big Idea 5</button>
+            </form>
+        </div>
+
+    </div>
+
+    <a href="/" class="back">← Back to Home</a>
+
+</div>
+
+</body>
+</html>

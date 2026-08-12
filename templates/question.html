@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP CSP Practice Question</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .progress {
+            text-align: center;
+            color: #6b7280;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .question-card {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .question-card h1 {
+            font-size: 27px;
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .answer-option {
+            display: block;
+            padding: 17px;
+            margin-bottom: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 17px;
+            transition: 0.2s;
+        }
+
+        .answer-option:hover {
+            border-color: #2563eb;
+            background: #f8faff;
+        }
+
+        .answer-option input {
+            margin-right: 10px;
+        }
+
+        .submit-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 700px) {
+            .question-card {
+                padding: 25px;
+            }
+
+            .question-card h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AP CSP Practice Generator</h2>
+</header>
+
+<div class="container">
+
+    <div class="progress">
+        Question {{ number }} of {{ total }}
+    </div>
+
+    <div class="question-card">
+
+        <h1>{{ question.question }}</h1>
+
+        <form action="/answer" method="POST">
+
+            <label class="answer-option">
+                <input type="radio" name="answer" value="A" required>
+                A. {{ question.A }}
+            </label>
+
+            <label class="answer-option">
+                <input type="radio" name="answer" value="B">
+                B. {{ question.B }}
+            </label>
+
+            <label class="answer-option">
+                <input type="radio" name="answer" value="C">
+                C. {{ question.C }}
+            </label>
+
+            <label class="answer-option">
+                <input type="radio" name="answer" value="D">
+                D. {{ question.D }}
+            </label>
+
+            <button type="submit" class="submit-button">
+                Submit Answer
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

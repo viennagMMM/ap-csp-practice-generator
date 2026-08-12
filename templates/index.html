@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP CSP Practice Generator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        .start-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 15px 32px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .start-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .instructions {
+            background: #111827;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .instructions-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .instructions h2 {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .instructions ul {
+            max-width: 600px;
+            margin: 30px auto;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+            background: #f4f7fb;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 18px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AP CSP Practice Generator</h2>
+</header>
+
+<section class="hero">
+
+    <h1>Master AP Computer Science Principles.</h1>
+
+    <p>
+        Practice all five AP CSP Big Ideas with questions that become
+        progressively more challenging as you improve.
+    </p>
+
+    <a href="/bigidea" class="start-button">
+        Start Practicing
+    </a>
+
+</section>
+
+<section class="section">
+
+    <h2>How It Works</h2>
+
+    <div class="steps">
+
+        <div class="card">
+            <h3>1. Choose a Big Idea</h3>
+            <p>
+                Select the AP CSP Big Idea you want to practice.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>2. Choose Your Challenge</h3>
+            <p>
+                Practice with Easy, Medium, Hard, or Challenge questions.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>3. Track Your Progress</h3>
+            <p>
+                Score at least 8 out of 10 to move forward through the
+                difficulty levels.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="instructions">
+
+    <div class="instructions-content">
+
+        <h2>What You Can Practice</h2>
+
+        <ul>
+            <li>All 5 AP CSP Big Ideas</li>
+            <li>Progressively harder questions</li>
+            <li>Randomized practice questions</li>
+            <li>Explanations after each answer</li>
+            <li>Progressive Mode for structured studying</li>
+            <li>Challenge Mode for the hardest questions</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<footer>
+    AP CSP Practice Generator
+</footer>
+
+</body>
+</html>

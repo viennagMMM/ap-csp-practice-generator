@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Your Practice Mode</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.6;
+            min-height: 80px;
+        }
+
+        .card button {
+            width: 100%;
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 14px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #1d4ed8;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 35px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .title h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AP CSP Practice Generator</h2>
+</header>
+
+<div class="container">
+
+    <div class="title">
+        <h1>Choose Your Practice Mode</h1>
+        <p>Choose how you want to practice this Big Idea.</p>
+    </div>
+
+    <div class="options">
+
+        <!-- PROGRESSIVE MODE -->
+        <div class="card">
+
+            <h2>Progressive Mode</h2>
+
+            <p>
+                Start with Easy and unlock Medium, Hard, and Challenge
+                by mastering each level.
+            </p>
+
+            <form action="/questions">
+                <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                <input type="hidden" name="mode" value="progressive">
+                <input type="hidden" name="difficulty" value="easy">
+
+                <button type="submit">
+                    Start Progressive Mode
+                </button>
+            </form>
+
+        </div>
+
+
+        <!-- CHOOSE YOUR DIFFICULTY -->
+        <div class="card">
+
+            <h2>Choose Your Difficulty</h2>
+
+            <p>
+                Jump straight to the difficulty you want to practice.
+                You can choose Easy, Medium, Hard, or Challenge.
+            </p>
+
+            <form action="/difficulty">
+                <input type="hidden" name="bigidea" value="{{ bigidea }}">
+
+                <button type="submit">
+                    Choose Difficulty
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <a href="/bigidea" class="back">
+        ← Back to Big Ideas
+    </a>
+
+</div>
+
+</body>
+</html>

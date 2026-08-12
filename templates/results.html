@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Results</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .results-card {
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .results-card h1 {
+            font-size: 38px;
+            margin-top: 0;
+        }
+
+        .score {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #2563eb;
+        }
+
+        .passed {
+            color: #16a34a;
+            font-size: 22px;
+        }
+
+        .failed {
+            color: #dc2626;
+            font-size: 20px;
+        }
+
+        .message {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .actions {
+            margin-top: 30px;
+        }
+
+        .actions form {
+            margin: 12px 0;
+        }
+
+        button {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .home-button {
+            background: #111827;
+        }
+
+        .home-button:hover {
+            background: #1f2937;
+        }
+
+        .completion {
+            margin-top: 25px;
+            padding: 25px;
+            background: #f0fdf4;
+            border-radius: 12px;
+        }
+
+        .completion h2 {
+            color: #16a34a;
+            margin-top: 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 35px 0;
+        }
+
+        @media (max-width: 700px) {
+            .results-card {
+                padding: 30px 20px;
+            }
+
+            .results-card h1 {
+                font-size: 32px;
+            }
+
+            .score {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AP CSP Practice Generator</h2>
+</header>
+
+<div class="container">
+
+    <div class="results-card">
+
+        <h1>Quiz Complete!</h1>
+
+        <div class="score">
+            {{ score }}/{{ total }}
+        </div>
+
+
+        {% if passed %}
+
+            <h3 class="passed">
+                🎉 Congratulations! You Passed!
+            </h3>
+
+        {% else %}
+
+            <p class="failed">
+                Keep practicing!
+            </p>
+
+            <p class="message">
+                You need 8/10 to unlock the next level.
+            </p>
+
+        {% endif %}
+
+
+        <hr>
+
+
+        <div class="actions">
+
+            {% if mode == "progressive" %}
+
+                {% if passed %}
+
+                    {% if next_difficulty %}
+
+                        <form action="/questions">
+
+                            <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                            <input type="hidden" name="difficulty" value="{{ next_difficulty }}">
+                            <input type="hidden" name="mode" value="{{ mode }}">
+
+                            <button type="submit">
+                                Continue to {{ next_difficulty.title() }}
+                            </button>
+
+                        </form>
+
+                    {% else %}
+
+                        <div class="completion">
+
+                            <h2>🏆 You completed this Big Idea!</h2>
+
+                            <p>
+                                Amazing work! You've completed every
+                                difficulty level for this Big Idea.
+                            </p>
+
+                        </div>
+
+                    {% endif %}
+
+
+                {% else %}
+
+                    <form action="/questions">
+
+                        <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                        <input type="hidden" name="difficulty" value="{{ difficulty }}">
+                        <input type="hidden" name="mode" value="{{ mode }}">
+
+                        <button type="submit">
+                            Retry {{ difficulty.title() }}
+                        </button>
+
+                    </form>
+
+                {% endif %}
+
+
+            {% else %}
+
+
+                <form action="/questions">
+
+                    <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                    <input type="hidden" name="difficulty" value="{{ difficulty }}">
+                    <input type="hidden" name="mode" value="{{ mode }}">
+
+                    <button type="submit">
+                        Retry {{ difficulty.title() }}
+                    </button>
+
+                </form>
+
+
+                {% if next_difficulty %}
+
+                    <form action="/questions">
+
+                        <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                        <input type="hidden" name="difficulty" value="{{ next_difficulty }}">
+                        <input type="hidden" name="mode" value="{{ mode }}">
+
+                        <button type="submit">
+                            Continue to {{ next_difficulty.title() }}
+                        </button>
+
+                    </form>
+
+                {% endif %}
+
+
+            {% endif %}
+
+
+            <form action="/">
+
+                <button type="submit" class="home-button">
+                    Return Home
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

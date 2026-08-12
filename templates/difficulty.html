@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Your Difficulty</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .title p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        .difficulties {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 25px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.5;
+            min-height: 50px;
+        }
+
+        .card button {
+            width: 100%;
+            border: none;
+            color: white;
+            padding: 13px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card button:hover {
+            transform: translateY(-2px);
+        }
+
+        .easy button {
+            background: #16a34a;
+        }
+
+        .easy button:hover {
+            background: #15803d;
+        }
+
+        .medium button {
+            background: #2563eb;
+        }
+
+        .medium button:hover {
+            background: #1d4ed8;
+        }
+
+        .hard button {
+            background: #ea580c;
+        }
+
+        .hard button:hover {
+            background: #c2410c;
+        }
+
+        .challenge button {
+            background: #7c3aed;
+        }
+
+        .challenge button:hover {
+            background: #6d28d9;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 35px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .difficulties {
+                grid-template-columns: 1fr;
+            }
+
+            .title h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>AP CSP Practice Generator</h2>
+</header>
+
+<div class="container">
+
+    <div class="title">
+        <h1>Choose Your Difficulty</h1>
+        <p>Select the level you want to practice.</p>
+    </div>
+
+    <div class="difficulties">
+
+        <!-- EASY -->
+        <div class="card easy">
+            <h2>Easy</h2>
+
+            <p>
+                Review the fundamentals and build your confidence.
+            </p>
+
+            <form action="/questions">
+                <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                <input type="hidden" name="difficulty" value="easy">
+
+                <button type="submit">Start Easy</button>
+            </form>
+        </div>
+
+
+        <!-- MEDIUM -->
+        <div class="card medium">
+            <h2>Medium</h2>
+
+            <p>
+                Test your understanding with more detailed questions
+                and connections between concepts.
+            </p>
+
+            <form action="/questions">
+                <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                <input type="hidden" name="difficulty" value="medium">
+
+                <button type="submit">Start Medium</button>
+            </form>
+        </div>
+
+
+        <!-- HARD -->
+        <div class="card hard">
+            <h2>Hard</h2>
+
+            <p>
+                Challenge yourself with deeper reasoning and
+                more complex AP CSP questions.
+            </p>
+
+            <form action="/questions">
+                <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                <input type="hidden" name="difficulty" value="hard">
+
+                <button type="submit">Start Hard</button>
+            </form>
+        </div>
+
+
+        <!-- CHALLENGE -->
+        <div class="card challenge">
+            <h2>Challenge</h2>
+
+            <p>
+                Take on the hardest questions designed to really
+                test your AP CSP knowledge.
+            </p>
+
+            <form action="/questions">
+                <input type="hidden" name="bigidea" value="{{ bigidea }}">
+                <input type="hidden" name="difficulty" value="challenge">
+
+                <button type="submit">Start Challenge</button>
+            </form>
+        </div>
+
+    </div>
+
+    <a href="/practice?bigidea={{ bigidea }}" class="back">
+        ← Back to Practice Modes
+    </a>
+
+</div>
+
+</body>
+</html>
